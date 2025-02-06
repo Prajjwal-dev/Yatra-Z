@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Booking - Yatra-Z</title>
+    <link rel="stylesheet" href="guide_book.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-brand">
+                <img src="img/logo.png" alt="Logo" class="logo">
+                <h1 class="brand-name">Yatra-Z</h1>
+            </div>
+            <h1 class="page-title">Guide Booking</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Guide Description Section -->
+        <div class="description-section">
+            <h2>Guide</h2>
+            <div class="description-box" onclick="toggleDescription()">Click to read about our features</div>
+            <div class="description-content">
+                <p>Yatra-Z offers a comprehensive tourism experience with various features:</p>
+                <ul>
+                    <li><strong>Booking:</strong> Easily book trips, guides, and accommodations.</li>
+                    <li><strong>Travel Wiki:</strong> Access detailed information about destinations.</li>
+                    <li><strong>Interactive Map:</strong> Explore locations with our interactive map.</li>
+                    <li><strong>Customizable Itineraries:</strong> Plan your trip with customizable itineraries.</li>
+                    <li><strong>Events:</strong> Stay updated with local events and festivals.</li>
+                    <li><strong>Translation Tools:</strong> Communicate easily with built-in translation tools.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Download PDF Section -->
+        <div class="download-section">
+            <h2>Download Guide</h2>
+            <button onclick="downloadPDF()">
+                <img src="img/pdf_icon.png" alt="PDF Icon" class="pdf-icon">
+                Download PDF Guide
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer">
+            <div class="footer-div">
+                <div class="head">
+                    <p>Yatra-Z</p>
+                </div>
+                <h6>Product</h6>
+                <p>Landing Page</p>
+                <p>Exploration</p>
+                <p>Reservation</p>
+            </div>
+            <div class="footer-div">
+                <h6>Trip Services</h6>
+                <p>Trip Booking</p>
+                <p>Itinerary Planning</p>
+                <p>Tourist Guide</p>
+            </div>
+            <div class="footer-div">
+                <h6>Contact Info</h6>
+                <p>support@yatraz.com</p>
+                <p>+977 9876543210</p>
+                <address>Kamalpokhari, Kathmandu</address>
+            </div>
+            <div class="footer-div">
+                <h6>Social Media Links</h6>
+                <div class="links">
+                    <img src="img/icons8-instagram-50.png" alt="Instagram" class="image">
+                    <a href="#">instagram.com</a>
+                </div>        
+                <div class="links">
+                    <img src="img/facebook icon.png" alt="Facebook" class="image">
+                    <a href="#">facebook.com</a>
+                </div>        
+                <div class="links">
+                    <img src="img/icons8-twitter-50.png" alt="Twitter" class="image">
+                    <a href="#">Twitter.com</a>
+                </div>        
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function bookGuide() {
+            // Implement booking logic here
+            document.getElementById('bookingStatus').textContent = "Guide booked successfully!";
+        }
+
+        function downloadPDF() {
+            // Implement PDF download logic here
+            window.open('Yatra-Z_guide_book.pdf', '_blank');
+        }
+
+        function toggleDescription() {
+            const content = document.querySelector('.description-content');
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

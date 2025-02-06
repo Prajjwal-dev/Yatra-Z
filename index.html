@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yatra-Z</title>
     <link rel="stylesheet" href="index_style.css">
-    <link  href="@import url(https://db.onlinewebfonts.com/c/73c00071d90ecfb78bf0ccdeda529307?family=Nico+Moji);">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -17,24 +17,33 @@
                 </div>
                 <h2 class="header-title">Home</h2>
                 <ul>
-                    <li><a href="explorationPage.html">Explore</a></li>
-                    <li><a href="itenary.html">Itinerary</a></li>
+                    <li><a href="guide_book.html" data-lang="guideBook">Guide Book</a></li>
+                    <li><a href="itenary.html" data-lang="itinerary">Itinerary</a></li>
+                    <li><a href="login_statement.php" data-lang="bookingStatement">Booking Statement</a></li>
+                    <li><a href="calendar.html" data-lang="calendar">Nepali Calendar and Clock</a></li>
+                    <!-- Language Dropdown Menu -->
                     <li>
-                        <li><a href="login_statement.php">Booking Statement</a></li>
+                        <select id="language" onchange="changeLanguage()">
+                            <option value="en">English</option>
+                            <option value="ne">Nepali</option>
+                            <option value="es">Spanish</option>
+                            <option value="hi">Hindi</option>
+                            <option value="fr">French</option>
+                        </select>
                     </li>
-                    <li><a href="calendar.html">Nepali Calendar and Clock</a></li>
                 </ul>
             </div>
         </nav>
-    </header>    
-        
+    </header>
+
     <div class="main">
         <a href="explorationPage.html">
-            <p class="Exploration">
+            <p class="Exploration" id="typing-container">
                 <span id="typing-text"></span><span class="cursor">|</span>
             </p>
         </a>
     </div>
+
     <!-- Footer -->
     <div class="footer-container">
         <div class="footer">
@@ -64,15 +73,15 @@
                 <div class="links">
                     <img src="img/icons8-instagram-50.png" alt="instagram" class="image">
                     <a href="#">instagram.com</a>
-                </div>        
+                </div>
                 <div class="links">
                     <img src="img/facebook icon.png" alt="facebook" class="image">
                     <a href="#">facebook.com</a>
-                </div>        
+                </div>
                 <div class="links">
                     <img src="img/icons8-twitter-50.png" alt="twitter" class="image">
                     <a href="#">Twitter.com</a>
-                </div>        
+                </div>
             </div>
         </div>
     </div>
@@ -82,18 +91,66 @@
             let index = 0;
             const typingText = document.getElementById("typing-text");
             const cursor = document.querySelector(".cursor");
-    
+
             function typeEffect() {
                 if (index < text.length) {
                     typingText.textContent += text.charAt(index);
                     index++;
                     setTimeout(typeEffect, 150);
+                } else {
+                    cursor.style.display = 'none';
                 }
             }
-    
+
             typeEffect();
         });
+
+        function changeLanguage() {
+            const language = document.getElementById('language').value;
+            const elements = document.querySelectorAll('[data-lang]');
+
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.textContent = translations[language][key];
+            });
+        }
+
+        const translations = {
+            en: {
+                guideBook: 'Guide Book',
+                itinerary: 'Itinerary',
+                bookingStatement: 'Booking Statement',
+                calendar: 'Nepali Calendar and Clock'
+            },
+            ne: {
+                guideBook: 'गाइड बुक',
+                itinerary: 'यात्रा कार्यक्रम',
+                bookingStatement: 'बुकिंग स्टेटमेन्ट',
+                calendar: 'नेपाली पात्रो र घडी'
+            },
+            es: {
+                guideBook: 'Guía',
+                itinerary: 'Itinerario',
+                bookingStatement: 'Declaración de Reserva',
+                calendar: 'Calendario y Reloj Nepalí'
+            },
+            hi: {
+                guideBook: 'मार्गदर्शक पुस्तक',
+                itinerary: 'यात्रा कार्यक्रम',
+                bookingStatement: 'बुकिंग विवरण',
+                calendar: 'नेपाली कैलेंडर और घड़ी'
+            },
+            fr: {
+                guideBook: 'Guide',
+                itinerary: 'Itinéraire',
+                bookingStatement: 'Déclaration de Réservation',
+                calendar: 'Calendrier et Horloge Népalaise'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLanguage();
+        });
     </script>
-    
 </body>
 </html>
