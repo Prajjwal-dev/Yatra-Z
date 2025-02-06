@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="food_prefernce.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h2>Food Preference</h2>
+    </header>
+    
+    <div class="container">
+        <div class="category">
+            <h3>Standard Choice</h3>
+            <label><input type="checkbox" checked> Vegetarian 🌱</label>
+            <label><input type="checkbox" checked> Non-Vegetarian 🍗</label>
+            <label><input type="checkbox" checked> Vegan 🌿</label>
+            <label><input type="checkbox" checked> Eggatarian 🥚</label>
+        </div>
+        <div class="category">
+            <h3>Special Dietary</h3>
+            <label><input type="checkbox" checked> Gluten-Free 🚫🍞</label>
+            <label><input type="checkbox" checked> Lactose-Free 🚫🥛</label>
+            <label><input type="checkbox" checked> Nut-Free 🚫🥜</label>
+            <label><input type="checkbox" checked> Sugar-Free 🚫🍬</label>
+        </div>
+        <div class="category">
+            <h3>Regional and Cultural Preference</h3>
+            <label><input type="checkbox" checked> Halal 🕌</label>
+            <label><input type="checkbox" checked> Kosher ✡️</label>
+            <label><input type="checkbox" checked> Jain Food 🚫🥕</label>
+        </div>
+    </div>
+    <button onclick="submitPreferences()"><a href="#">Done</a></button>
+    
+    <footer>
+        <div class="footerPart">
+            <div class="footer-div">
+                <div class="head">
+                    <p>Yatra-Z</p>
+                </div>
+                <div class="footer-head">
+                    <h6>Product</h6>
+                </div>
+                <div class="footer-body">
+                    <p>landing page</p>
+                    <p>Exploration</p>
+                    <p>Reservation</p>
+                </div>
+            </div>
+            <div class="footer-div">
+                    <div class="footer-head">
+                        <h6>Trip services</h6>
+                    </div>
+                    <div class="footer-body">
+                        <p>Trip Booking</p>
+                        <p>Itinerary planing</p>
+                        <p>Tourist Guide</p>
+                        </div> 
+                        
+                    </div>
+                    <div class="footer-div">
+                        <div class="footer-head">
+                            <h6>Contact Info</h6>
+                        </div>
+                        <div class="footer-body">
+                            <p>support@yatraz.com</p>
+                            <p>+977 9876543210</p>
+                            <p>Kamalpokhari,Kathmandu</p>
+                        </div>
+                    </div>
+                    <div class="footer-div">
+                        <h6>Social Media links</h6>
+                        <div class="links">
+                            <img src="img/icons8-instagram-50.png" alt="instagram" class="image">
+                            <a href="#">instagram.com</a>
+                        </div>        
+                        <div class="links">
+                            <img src="img/facebook icon.png" alt="facebook" class="image">
+                            <a href="#">facebook.com</a>
+                        </div>        
+                        <div class="links">
+                            <img src="img/icons8-twitter-50.png" alt="twitter" class="image">
+                    <a href="#">Twitter.com</a>
+                        </div>        
+            </div>
+    
+        </div>
+        
+    </footer>
+    <script>
+        function submitPreferences() {
+            let selectedPreferences = [];
+            document.querySelectorAll("input[type='checkbox']:checked").forEach((checkbox) => {
+                selectedPreferences.push(checkbox.parentElement.innerText.trim());
+            });
+            localStorage.setItem("foodPreference", selectedPreferences.join(", "));
+            window.location.href = "booking.php";
+        }
+        </script>
+        
+</body>
+</html>

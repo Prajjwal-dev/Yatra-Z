@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("img/BG.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #424242;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+}
+
+.contain {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.places {
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.first {
+    flex: 1;
+    padding: 20px;
+}
+
+.first h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.first p {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.button {
+    display: flex;
+    gap: 10px;
+}
+
+.button button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button button:hover {
+    background-color: #0056b3;
+}
+
+.second {
+    flex: 1;
+}
+
+.second img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pagelink {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagelink button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pagelink button:hover {
+    background-color: #333;
+}
+
+footer {
+    background-color: #424242;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footerPart {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-div {
+    text-align: left;
+}
+
+.footer-div h6 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.footer-div p {
+    font-size: 12px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.links img {
+    width: 20px;
+    height: 20px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+}
+
+.links a:hover {
+    color: blue;
+}
+
+/* Make places section flex to align map, text, and image */
+.places {
+    display: flex;
+    background-color: #e3e1e1;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    align-items: center; /* Align items properly */
+}
+
+/* Style the map container */
+.map-container {
+    width: 30%;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+/* Ensure iframe fits properly */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Style for text section */
+.first {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Style for the image section */
+.second {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.second img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}

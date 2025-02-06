@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 24px;
+}
+
+.page-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Calendar Section */
+.calendar-section {
+    padding: 20px;
+    background: white;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+}
+
+/* Align "Nepali Calendar" text to the left */
+.calendar-title {
+    text-align: left; /* Aligns the title to the left */
+    font-size: 24px;
+    margin-bottom: 20px; /* Add space below the title */
+}
+
+/* Center the iframe */
+.calendar-section iframe {
+    width: 100%;
+    height: 650px;
+    border-radius: 5px;
+}
+
+/* Clock Section */
+.clock-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.footerPart {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-div h6 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-div p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+.links img {
+    width: 20px;
+    margin-right: 10px;
+}

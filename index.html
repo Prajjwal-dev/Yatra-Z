@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatra-Z</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link  href="@import url(https://db.onlinewebfonts.com/c/73c00071d90ecfb78bf0ccdeda529307?family=Nico+Moji);">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Couldn't load image!">
+                    <h1>Yatra-Z</h1>
+                </div>
+                <h2 class="header-title">Home</h2>
+                <ul>
+                    <li><a href="explorationPage.html">Explore</a></li>
+                    <li><a href="itenary.html">Itinerary</a></li>
+                    <li>
+                        <li><a href="login_statement.php">Booking Statement</a></li>
+                    </li>
+                    <li><a href="calendar.html">Nepali Calendar and Clock</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>    
+        
+    <div class="main">
+        <a href="explorationPage.html">
+            <p class="Exploration">
+                <span id="typing-text"></span><span class="cursor">|</span>
+            </p>
+        </a>
+    </div>
+    <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer">
+            <div class="footer-div">
+                <div class="head">
+                    <p>Yatra-Z</p>
+                </div>
+                <h6>Product</h6>
+                <p>landing page</p>
+                <p>Exploration</p>
+                <p>Reservation</p>
+            </div>
+            <div class="footer-div">
+                <h6>Trip services</h6>
+                <p>Trip Booking</p>
+                <p>Itinerary planning</p>
+                <p>Tourist Guide</p>
+            </div>
+            <div class="footer-div">
+                <h6>Contact Info</h6>
+                <p>support@yatraz.com</p>
+                <p>+977 9876543210</p>
+                <address>Kamalpokhari, Kathmandu</address>
+            </div>
+            <div class="footer-div">
+                <h6>Social Media links</h6>
+                <div class="links">
+                    <img src="img/icons8-instagram-50.png" alt="instagram" class="image">
+                    <a href="#">instagram.com</a>
+                </div>        
+                <div class="links">
+                    <img src="img/facebook icon.png" alt="facebook" class="image">
+                    <a href="#">facebook.com</a>
+                </div>        
+                <div class="links">
+                    <img src="img/icons8-twitter-50.png" alt="twitter" class="image">
+                    <a href="#">Twitter.com</a>
+                </div>        
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "Exploration";
+            let index = 0;
+            const typingText = document.getElementById("typing-text");
+            const cursor = document.querySelector(".cursor");
+    
+            function typeEffect() {
+                if (index < text.length) {
+                    typingText.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeEffect, 150);
+                }
+            }
+    
+            typeEffect();
+        });
+    </script>
+    
+</body>
+</html>

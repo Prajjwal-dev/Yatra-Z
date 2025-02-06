@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Travel Planner</title>
+    <link rel="stylesheet" href="itenary.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-brand">
+                <img src="img/logo.png" alt="Logo" class="logo">
+                <h1 class="brand-name">Yatra-Z</h1>
+            </div>
+            <h1 class="page-title">Itineraries</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="form-section">
+            <div class="form-group">
+                <label>Start Date:</label>
+                <input type="date" id="startDate" required>
+            </div>
+
+            <div class="form-group">
+                <label>End Date:</label>
+                <input type="date" id="endDate" required>
+            </div>
+            <label>Destination</label>
+            <div class="form-group destinations">
+                <div class="destination-group">
+                    <label>Kathmandu:</label>
+                    <select id="kathmandu" onchange="updateActivities('kathmandu')" required>
+                        <option value="">Select Activity</option>
+                        <option value="Pashupatinath Temple">Pashupatinath Temple</option>
+                        <option value="Boudhanath Stupa">Boudhanath Stupa</option>
+                        <option value="Kathmandu Durbar Square">Kathmandu Durbar Square</option>
+                    </select>
+                </div>
+                <div class="destination-group">
+                    <label>Pokhara:</label>
+                    <select id="pokhara" onchange="updateActivities('pokhara')" required>
+                        <option value="">Select Activity</option>
+                        <option value="Phewa Lake Boating">Phewa Lake Boating</option>
+                        <option value="Davis Falls">Davis Falls</option>
+                        <option value="Sarangkot Sunrise">Sarangkot Sunrise</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" id="activitiesContainerKathmandu">
+                <!-- Kathmandu Activities will be populated here based on selection -->
+            </div>
+
+            <div class="form-group" id="activitiesContainerPokhara">
+                <!-- Pokhara Activities will be populated here based on selection -->
+            </div>
+
+            <div class="form-group">
+                <label>Total Budget ($):</label>
+                <input type="number" id="totalBudget" required>
+            </div>
+
+            <button onclick="calculateBudget()">Calculate Budget</button>
+
+            <div class="budget-display">
+                Estimated Cost: $<span id="estimatedCost">0</span>
+            </div>
+
+            <div id="recommendation"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer">
+            <div class="footer-div">
+                <div class="head">
+                    <p>Yatra-Z</p>
+                </div>
+                <h6>Product</h6>
+                <p>Landing Page</p>
+                <p>Exploration</p>
+                <p>Reservation</p>
+            </div>
+            <div class="footer-div">
+                <h6>Trip Services</h6>
+                <p>Trip Booking</p>
+                <p>Itinerary Planning</p>
+                <p>Tourist Guide</p>
+            </div>
+            <div class="footer-div">
+                <h6>Contact Info</h6>
+                <p>support@yatraz.com</p>
+                <p>+977 9876543210</p>
+                <address>Kamalpokhari, Kathmandu</address>
+            </div>
+            <div class="footer-div">
+                <h6>Social Media Links</h6>
+                <div class="links">
+                    <img src="img/icons8-instagram-50.png" alt="Instagram" class="image">
+                    <a href="#">instagram.com</a>
+                </div>        
+                <div class="links">
+                    <img src="img/facebook icon.png" alt="Facebook" class="image">
+                    <a href="#">facebook.com</a>
+                </div>        
+                <div class="links">
+                    <img src="img/icons8-twitter-50.png" alt="Twitter" class="image">
+                    <a href="#">Twitter.com</a>
+                </div>        
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Date validation logic
+        document.getElementById('startDate').addEventListener('change', function() {
+            const startDate = this.value;
+            const endDateField = document.getElementById('endDate');
+            endDateField.min = startDate;
+            
+            if (endDateField.value < startDate) {
+                endDateField.value = startDate;
+            }
+        });
+
+        document.getElementById('endDate').addEventListener('change', function() {
+            const startDate = document.getElementById('startDate').value;
+            if (this.value < startDate) {
+                alert("End date cannot be before start date!");
+                this.value = startDate;
+            }
+        });
+
+        const activities = {
+            kathmandu: [
+                { name: "Pashupatinath Temple", cost: 60 },
+                { name: "Boudhanath Stupa", cost: 50 },
+                { name: "Kathmandu Durbar Square", cost: 40 }
+            ],
+            pokhara: [
+                { name: "Phewa Lake Boating", cost: 70 },
+                { name: "Davis Falls", cost: 90 },
+                { name: "Sarangkot Sunrise", cost: 80 }
+            ]
+        };
+
+        function updateActivities(destination) {
+            const container = document.getElementById(destination === 'kathmandu' ? 'activitiesContainerKathmandu' : 'activitiesContainerPokhara');
+            container.innerHTML = `<label>Activities in ${destination.charAt(0).toUpperCase() + destination.slice(1)}:</label>`;
+
+            if (destination && activities[destination]) {
+                activities[destination].forEach(activity => {
+                    const div = document.createElement('div');
+                    div.className = 'activity-item';
+                    div.innerHTML = `
+                        <input type="checkbox" class="activity" data-destination="${destination}" value="${activity.name}">
+                        ${activity.name} 
+                        <span class="activity-cost">$${activity.cost}</span>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+        }
+
+        function calculateBudget() {
+            let total = 0;
+            
+            document.querySelectorAll('.activity:checked').forEach(checkbox => {
+                const destination = checkbox.getAttribute('data-destination');
+                const activityName = checkbox.value;
+                const activity = activities[destination].find(a => a.name === activityName);
+                if (activity) total += activity.cost;
+            });
+
+            const estimatedCost = document.getElementById('estimatedCost');
+            estimatedCost.textContent = total;
+
+            const totalBudget = parseFloat(document.getElementById('totalBudget').value) || 0;
+            const recommendation = document.getElementById('recommendation');
+            
+            if (total === 0) {
+                recommendation.textContent = "Please select activities";
+                recommendation.style.backgroundColor = "#ffc107";
+                return;
+            }
+
+            if (total > totalBudget) {
+                recommendation.textContent = `Over Budget by $${total - totalBudget}! Adjust your plans`;
+                recommendation.style.backgroundColor = "#dc3545";
+                recommendation.style.color = "white";
+            } else {
+                recommendation.textContent = `Under Budget by $${totalBudget - total}! Ready to go!`;
+                recommendation.style.backgroundColor = "#28a745";
+                recommendation.style.color = "white";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('img/BG.jpg') no-repeat center center;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures content spans full height */
+}
+
+header {
+    background-color: #424242;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logout-btn {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+}
+
+
+header h1 {
+    margin: 0 auto; /* Centers "Home" */
+    font-size: 22px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.profile img {
+    width: 40px; /* Smaller size */
+    height: 40px; /* Equal height to make it oval */
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover;
+}
+
+.profile p {
+    color: white;
+    font-size: 14px;
+    margin: 0;
+}
+
+.wrapper {
+    flex: 1; /* Ensures it grows and fills space between header and footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Prevents content from sticking to header */
+    padding-bottom: 100px; /* Ensures footer doesn't overlap */
+    width: 100%;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Adds depth to the box */
+    margin: 0 auto;
+}
+
+input, select, button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 80%;
+}
+
+button {
+    cursor: pointer;
+    background: #34db34;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2bb32b;
+}
+
+footer {
+    width: 100%;
+    background-color: #424242;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.footer-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-div h6 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.footer-div p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.footer-div .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.footer-div .links img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-div .links a {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer-div .links a:hover {
+    color: #34db34;
+    text-decoration: underline;
+}
